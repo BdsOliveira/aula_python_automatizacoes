@@ -6,7 +6,7 @@ def index(request):
     return render(request, 'automatizacoes/index.html')
 
 def executar(request):
-    caminho_completo = '/home/bdsoliveira/coding/python/automatizacoes/colaboradores.xlsx'
+    caminho_completo = './colaboradores.xlsx'
     colaboradores = load_workbook(caminho_completo)
     print(colaboradores.sheetnames)
 
@@ -27,7 +27,7 @@ def executar(request):
         aba_destino.cell(row=max_linha, column=2).value = aba_inicial.cell(row=linha, column=2).value
         aba_destino.cell(row=max_linha, column=3).value = aba_inicial.cell(row=linha, column=3).value
 
-    colaboradores.save("/home/bdsoliveira/coding/python/automatizacoes/colaboradores_separados.xlsx")
+    colaboradores.save("./colaboradores_separados.xlsx")
 
     return render(request, 'automatizacoes/sucesso.html')
 
